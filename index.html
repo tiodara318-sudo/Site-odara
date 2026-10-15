@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odara OSC | Cultura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        vinho: '#7a1e2c',
+                        mostarda: '#d4a017',
+                        vinhodark: '#2b0b0e',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-[#faf8f5] dark:bg-[#1a0709] text-[#2b0b0e] dark:text-[#f3ede2] transition-colors duration-300">
+
+    <!-- 
+      ========================================================================
+      PAINEL DE EDIÇÃO COMPLETO DA EQUIPE E CONTEÚDOS ODARA
+      ========================================================================
+    -->
+    <script>
+        const CONFIG_ODARA = {
+            instagramUrl: "https://www.instagram.com/odara.osc/",
+
+            hero: {
+                badge: "Cultura, Educação e Juventude",
+                tituloParte1: "Transformando realidades através da ",
+                tituloDestaque: "arte e da educação",
+                descricao: "A Odara é uma ONG dedicada a promover e incentivar a cultura, a leitura e o desenvolvimento autônomo para as juventudes brasileiras."
+            },
+
+            lideranca: {
+                nome: "Alexssandre",
+                cargo: "Líder da Empresa",
+                foto: "https://static.wikia.nocookie.net/twd/images/8/86/T9Rick_%281%29.jpg/revision/latest/scale-to-width-down/1000?cb=20181107202347&path-prefix=pt-br"
+            },
+
+            sobre: {
+                quemSomosDesc: "Um ecossistema composto por frentes jovens e engajadas em gerar impacto real na sociedade através de frentes colaborativas e multidisciplinares.",
+                missao: "Promover e incentivar a cultura e educação, para as juventudes brasileiras.",
+                visao: "Alcançar os jovens por meio de ações culturais, educativas e de leitura.",
+                valores: [
+                    "Organização",
+                    "Desenvolvimento contínuo",
+                    "Autonomia",
+                    "Respeito à diversidade",
+                    "Atitude protagonista"
+                ]
+            },
+
+            setoresEquipe: {
+                administracao: {
+                    nome: "Administração",
+                    descricao: "Gestão estratégica, coordenação e alinhamento institucional da Odara.",
+                    membros: [
+                        { nome: "Kennedy", cargo: "Gestor Geral", foto: "https://i.postimg.cc/x8ZJ5zRP/ngoc-linh-tren-Tik-Tok.jpg" },
+                        { nome: "Eduardo", cargo: "Vice-Gestor", foto: "https://i.postimg.cc/x8ZJ5zRP/ngoc-linh-tren-Tik-Tok.jpg" },
+                        { nome: "Isabella", cargo: "Marketing Admin", foto: "https://i.postimg.cc/x8ZJ5zRP/ngoc-linh-tren-Tik-Tok.jpg" },
+                        { nome: "Sofia", cargo: "Eventos Admin", foto: "https://i.postimg.cc/x8ZJ5zRP/ngoc-linh-tren-Tik-Tok.jpg" },
+                        { nome: "Maria Eduarda", cargo: "Comunicação Admin", foto: "https://i.postimg.cc/x8ZJ5zRP/ngoc-linh-tren-Tik-Tok.jpg" }
+                    ]
+                },
+                rh: {
+                    nome: "Recursos Humanos (RH)",
+                    descricao: "Acolhimento, clima organizacional, inteligência emocional e recrutamento.",
+                    membros: [
+                        { nome: "Camille", cargo: "Gestora de RH", foto: "https://i.postimg.cc/KzH8hyMR/953566921129528565.jpg" },
+                        { nome: "Maria Luisa", cargo: "Vice-Gestora", foto: "https://i.postimg.cc/KzH8hyMR/953566921129528565.jpg" },
+                        { nome: "Maria Eduarda", cargo: "Recrutamento", foto: "https://i.postimg.cc/KzH8hyMR/953566921129528565.jpg" },
+                        { nome: "Eduarda", cargo: "Recrutamento", foto: "https://i.postimg.cc/KzH8hyMR/953566921129528565.jpg" },
+                        { nome: "Izabela", cargo: "Gestão de Clima", foto: "https://i.postimg.cc/KzH8hyMR/953566921129528565.jpg" },
+                        { nome: "Ana Luiza", cargo: "Gestão de Clima", foto: "https://i.postimg.cc/KzH8hyMR/953566921129528565.jpg" }
+                    ]
+                },
+                marketing: {
+                    nome: "Marketing",
+                    descricao: "Criação de conteúdo, estratégia digital e alcance das juventudes.",
+                    membros: [
+                        { nome: "Amanda", cargo: "Gestora de Marketing", foto: "https://i.postimg.cc/8s8ksBwz/art-sketch-artist-sketchbook-digitalart.jpg" },
+                        { nome: "Yasmin", cargo: "Vice-Gestora", foto: "https://i.postimg.cc/8s8ksBwz/art-sketch-artist-sketchbook-digitalart.jpg" },
+                        { nome: "A definir", cargo: "Editor de Vídeo", foto: "https://i.postimg.cc/8s8ksBwz/art-sketch-artist-sketchbook-digitalart.jpg" },
+                        { nome: "A definir", cargo: "Filmmaker", foto: "https://i.postimg.cc/8s8ksBwz/art-sketch-artist-sketchbook-digitalart.jpg" }
+                    ]
+                },
+                ti: {
+                    nome: "Tecnologia da Informação (TI)",
+                    descricao: "Desenvolvimento web, experiência do usuário e inovação tecnológica.",
+                    membros: [
+                        { nome: "Davi", cargo: "Gestor de TI", foto: "https://i.postimg.cc/CM9bb3Qq/idk.jpg" },
+                        { nome: "Vitória", cargo: "Vice-Gestora", foto: "https://i.postimg.cc/CM9bb3Qq/idk.jpg" },
+                        { nome: "Mavs", cargo: "UI/UX Designer", foto: "https://i.postimg.cc/CM9bb3Qq/idk.jpg" },
+                        { nome: "Amanda", cargo: "Dev Front-End", foto: "https://i.postimg.cc/CM9bb3Qq/idk.jpg" },
+                        { nome: "Matheus", cargo: "Dev Full-Stack", foto: "https://i.postimg.cc/CM9bb3Qq/idk.jpg" }
+                    ]
+                },
+                eventos: {
+                    nome: "Eventos",
+                    descricao: "Planejamento, execução e vivências culturais inesquecíveis.",
+                    membros: [
+                        { nome: "Giovanna", cargo: "Gestora de Eventos", foto: "https://i.postimg.cc/RZLf5NVt/587367976446340701.jpg" },
+                        { nome: "A definir", cargo: "Vice-Gestora", foto: "https://i.postimg.cc/RZLf5NVt/587367976446340701.jpg" },
+                        { nome: "Eyshela", cargo: "Produção de Eventos", foto: "https://i.postimg.cc/RZLf5NVt/587367976446340701.jpg" },
+                        { nome: "Izabelly", cargo: "Produção de Eventos", foto: "https://i.postimg.cc/RZLf5NVt/587367976446340701.jpg" },
+                        { nome: "Diana", cargo: "Produção de Eventos", foto: "https://i.postimg.cc/RZLf5NVt/587367976446340701.jpg" }
+                    ]
+                },
+                comunicacao: {
+                    nome: "Produção & Comunicação",
+                    descricao: "Redação web, revisão textual e comunicação visual integrada.",
+                    membros: [
+                        { nome: "Guilherme", cargo: "Gestor de Comunicação", foto: "https://i.postimg.cc/BvhKbkFf/𓏼.jpg" },
+                        { nome: "Mavs", cargo: "Vice-Gestor", foto: "https://i.postimg.cc/BvhKbkFf/𓏼.jpg" },
+                        { nome: "Karina", cargo: "Redatora Web", foto: "https://i.postimg.cc/BvhKbkFf/𓏼.jpg" },
+                        { nome: "Verônica", cargo: "Redatora Web", foto: "https://i.postimg.cc/BvhKbkFf/𓏼.jpg" },
+                        { nome: "Amanda", cargo: "Revisora Textual", foto: "https://i.postimg.cc/BvhKbkFf/𓏼.jpg" },
+                        { nome: "Oswaldo", cargo: "Revisor Textual", foto: "https://i.postimg.cc/BvhKbkFf/𓏼.jpg" }
+                    ]
+                }
+            },
+
+            personagemMes: {
+                mesTema: "Novembro Negro • Representatividade",
+                nome: "Super-Choque",
+                subtitulo: "Representatividade, Força e Inspiração",
+                descricao: "Eu vou dar um choque no seu sistema! Que a história de Virgil Hawkins inspire mais jovens a acenderem sua própria faísca e a transformarem o mundo ao seu redor. Ele é o símbolo perfeito para o mês da Consciência Negra.",
+                imagemPrincipal: "https://picfiles.alphacoders.com/419/thumb-1920-419238.jpg",
+                tag: "Herói & Ícone Cultural",
+                motivoDestaque: "A Odara destaca ícones que fortalecem a identidade, autoestima e protagonismo dos jovens das nossas comunidades."
+            },
+
+            pesquisaMes: {
+                mesTema: "Pesquisa Odara",
+                titulo: "Curiosidades Da Arte",
+                introducao: "A Odara reconhece a importância da arte e da cultura para a sociedade. Pinturas, obras de arte, artes visuais e museus contribuem para preservar a história, valorizar a diversidade cultural e ampliar conhecimentos.",
+                bloco1Titulo: "Importância da Arte na Sociedade",
+                bloco1Texto: "A arte é uma das principais formas de expressão humana, permitindo transmitir sentimentos, ideias e experiências. Presente em todas as sociedades, ela desempenha um papel fundamental na construção da identidade cultural, preservação de tradições e no desenvolvimento social.",
+                bloco2Titulo: "Artes Visuais e Museus",
+                bloco2Texto: "As artes visuais utilizam elementos como cores, linhas e texturas para transmitir mensagens. Já os museus são espaços dedicados à preservação e valorização desse patrimônio, estimulando a educação, a memória cultural e o acesso a diferentes perspectivas do mundo.",
+                museus: [
+                    {
+                        nome: "Museu da Língua Portuguesa",
+                        endereco: "Praça da Luz, s/nº - Centro Histórico de São Paulo, São Paulo - SP",
+                        link: "https://www.museudalinguaportuguesa.org.br/visite/horarios-e-ingressos/"
+                    },
+                    {
+                        nome: "Museu Catavento",
+                        endereco: "Avenida Mercúrio, Parque Dom Pedro II, S/N - Brás, São Paulo - SP",
+                        link: "https://www.museucatavento.org.br/horarios-e-precos"
+                    },
+                    {
+                        nome: "Museu do Ipiranga",
+                        endereco: "R. Dos Patriotas, 100 - Ipiranga, São Paulo - SP",
+                        link: "https://museudoipiranga.org.br/visite/"
+                    }
+                ]
+            },
+
+            projetos: [
+                {
+                    id: "proj-1",
+                    categoria: "Cultura & Leitura",
+                    titulo: "Visita ao Museu da Língua Portuguesa",
+                    resumo: "Imersão cultural focada na valorização da nossa língua e história literária.",
+                    detalhes: "Proporcionamos uma experiência transformadora aos jovens, permitindo o contato direto com exposições interativas sobre a evolução da língua portuguesa, promovendo o sentimento de pertencimento e o amor pela leitura."
+                },
+                {
+                    id: "proj-2",
+                    categoria: "Arte & Música",
+                    titulo: "Máquina do Tempo Musical",
+                    resumo: "Oficinas de resgate histórico musical e expressão artística para jovens.",
+                    detalhes: "Feirinha temática interativa desenvolvida de forma colaborativa por todos os setores da Odara. Cada setor construiu uma banquinha retratando uma década da música brasileira, recebendo duas turmas convidadas para uma verdadeira viagem histórica e de apreciação musical."
+                },
+                {
+                    id: "proj-3",
+                    categoria: "Desenvolvimento Humano",
+                    titulo: "Dinâmicas de Empatia no Trabalho",
+                    resumo: "Workshops práticos de inteligência emocional e convivência colaborativa.",
+                    detalhes: "Ação conduzida pelo setor de Recursos Humanos com foco em acolhimento, escuta ativa e fortalecimento dos laços interpessoais entre os integrantes dos setores."
+                }
+            ],
+
+            livroMes: {
+                titulo: "Quarto de Despejo",
+                autor: "Carolina Maria de Jesus",
+                descricao: "Um relato forte, sensível e essencial sobre a realidade social, leitura e vivências na periferia de São Paulo.",
+                capa: "https://m.media-amazon.com/images/I/41FhgtgeCqL._SY445_SX342_ML2_.jpg"
+            },
+            lugarMes: {
+                nome: "Museu da Língua Portuguesa",
+                local: "São Paulo, SP",
+                descricao: "Nosso destino inesquecível de projeto! Um espaço vibrante que celebra a diversidade e a potência da nossa língua."
+            }
+        };
+    </script>
+
+    <!-- Header / Navegação -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#faf8f5]/90 dark:bg-[#1a0709]/90 backdrop-blur-md border-b border-vinho/10 dark:border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-vinho flex items-center justify-center text-white font-bold text-lg shadow-md">O</div>
+                <span class="text-2xl font-extrabold tracking-tight text-vinhodark dark:text-white">ODARA <span class="text-mostarda text-sm uppercase block font-semibold tracking-widest">OSC</span></span>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 font-medium text-sm">
+                <a href="#sobre" class="hover:text-vinho dark:hover:text-mostarda transition">Sobre Nós</a>
+                <a href="#setores" class="hover:text-vinho dark:hover:text-mostarda transition">Equipe & Setores</a>
+                <a href="#personagem" class="hover:text-vinho dark:hover:text-mostarda transition text-vinho dark:text-mostarda font-bold">Personagem do Mês</a>
+                <a href="#arte-transforma" class="hover:text-vinho dark:hover:text-mostarda transition">Curiosidades</a>
+                <a href="#projetos" class="hover:text-vinho dark:hover:text-mostarda transition">Projetos</a>
+                <a href="#interativo" class="hover:text-vinho dark:hover:text-mostarda transition">Vibe Cultural</a>
+                <a href="#indicacoes" class="hover:text-vinho dark:hover:text-mostarda transition">Indicações</a>
+                
+                <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-vinho/10 dark:bg-white/10 text-vinho dark:text-mostarda hover:scale-105 transition" title="Alternar Modo Escuro">
+                    <svg id="sun-icon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg id="moon-icon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+
+                <a id="nav-insta-btn" href="#" target="_blank" class="bg-vinho text-white px-5 py-2.5 rounded-full font-semibold shadow-md hover:bg-vinhodark transition">Instagram</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 md:pt-44 md:pb-28 px-6 bg-gradient-to-b from-[#f3ede2] to-[#faf8f5] dark:from-[#2b0b0e] dark:to-[#1a0709]">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span id="hero-badge" class="inline-block bg-mostarda/20 text-vinho dark:text-mostarda font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase"></span>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-vinhodark dark:text-white leading-tight">
+                    <span id="hero-titulo-p1"></span><span id="hero-titulo-destaque" class="text-vinho dark:text-mostarda underline decoration-mostarda underline-offset-4"></span>.
+                </h1>
+                <p id="hero-desc" class="text-lg text-gray-700 dark:text-gray-300 font-normal leading-relaxed"></p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#setores" class="bg-vinho text-white px-8 py-3.5 rounded-xl font-bold shadow-lg hover:bg-vinhodark transition">
+                        Conheça Nossa Equipe
+                    </a>
+                    <a href="#arte-transforma" class="border-2 border-vinho dark:border-mostarda text-vinho dark:text-mostarda px-8 py-3.5 rounded-xl font-bold hover:bg-vinho/10 transition">
+                        Curiosidades
+                    </a>
+                </div>
+            </div>
+            <div class="relative flex justify-center">
+                <div class="w-72 h-72 md:w-96 md:h-96 rounded-3xl bg-vinho/10 dark:bg-vinho/30 absolute -rotate-6"></div>
+                <div class="w-72 h-72 md:w-96 md:h-96 rounded-3xl bg-mostarda/20 absolute rotate-6"></div>
+                <div class="w-72 h-72 md:w-96 md:h-96 rounded-3xl bg-vinho flex items-center justify-center p-8 shadow-2xl text-center text-white border-4 border-mostarda relative z-10">
+                    <div class="space-y-4">
+                        <h3 class="text-3xl font-extrabold tracking-wide">ODARA OSC</h3>
+                        <p class="text-sm opacity-90 font-light">"Cultura, Educação e Juventudes construindo o amanhã."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós & MVV -->
+    <section id="sobre" class="py-20 px-6 bg-white dark:bg-[#20090c]">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <div class="text-center max-w-2xl mx-auto space-y-4">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-vinhodark dark:text-white">Quem Somos</h2>
+                <p id="sobre-desc" class="text-gray-600 dark:text-gray-300"></p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-[#faf8f5] dark:bg-[#2b0b0e] p-8 rounded-2xl border-t-4 border-vinho shadow-sm space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-vinho/10 text-vinho dark:text-mostarda flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-vinhodark dark:text-white">Missão</h3>
+                    <p id="mvv-missao" class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed"></p>
+                </div>
+                <div class="bg-[#faf8f5] dark:bg-[#2b0b0e] p-8 rounded-2xl border-t-4 border-mostarda shadow-sm space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-mostarda/20 text-vinhodark dark:text-mostarda flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-vinhodark dark:text-white">Visão</h3>
+                    <p id="mvv-visao" class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed"></p>
+                </div>
+                <div class="bg-[#faf8f5] dark:bg-[#2b0b0e] p-8 rounded-2xl border-t-4 border-vinhodark dark:border-vinho shadow-sm space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-vinho/10 text-vinhodark dark:text-mostarda flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-vinhodark dark:text-white">Valores</h3>
+                    <ul id="mvv-valores-list" class="text-gray-600 dark:text-gray-300 text-sm space-y-2"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nossos Setores (Líder posicionado logo acima) -->
+    <section id="setores" class="py-20 px-6 bg-[#f3ede2]/50 dark:bg-[#1a0709]">
+        <div class="max-w-7xl mx-auto space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-4">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-vinhodark dark:text-white">Equipe & Setores</h2>
+                <p class="text-gray-600 dark:text-gray-300">Conheça nossa liderança geral e clique em qualquer setor abaixo para visualizar a equipe!</p>
+            </div>
+            
+            <!-- Destaque do Líder Geral Posicionado Acima dos Setores -->
+            <div class="max-w-sm mx-auto bg-white dark:bg-[#2b0b0e] p-6 rounded-3xl border-2 border-mostarda/60 flex items-center gap-5 shadow-md">
+                <div class="w-16 h-16 rounded-2xl bg-vinho/10 text-vinho dark:text-mostarda flex items-center justify-center font-bold text-2xl overflow-hidden shrink-0 border border-vinho/20">
+                    <img id="lider-foto" src="" alt="Líder" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <span class="text-xs font-extrabold text-mostarda uppercase tracking-wider block">Líder da Empresa</span>
+                    <h4 id="lider-nome" class="text-xl font-bold text-vinhodark dark:text-white"></h4>
+                    <p id="lider-cargo" class="text-xs text-gray-500 dark:text-gray-400"></p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 w-full pt-4">
+                <div onclick="abrirModalSetor('marketing')" class="cursor-pointer bg-white dark:bg-[#2b0b0e] p-6 rounded-2xl text-center shadow-sm border border-gray-100 dark:border-white/5 hover:border-mostarda transition flex flex-col items-center justify-between min-h-[160px] group">
+                    <div class="text-vinho dark:text-mostarda flex justify-center group-hover:scale-110 transition"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                    <h4 class="font-bold text-vinhodark dark:text-white text-sm">Marketing</h4>
+                    <span class="text-[10px] text-mostarda font-bold uppercase tracking-wider block">Ver Equipe →</span>
+                </div>
+                <div onclick="abrirModalSetor('ti')" class="cursor-pointer bg-white dark:bg-[#2b0b0e] p-6 rounded-2xl text-center shadow-sm border border-gray-100 dark:border-white/5 hover:border-mostarda transition flex flex-col items-center justify-between min-h-[160px] group">
+                    <div class="text-vinho dark:text-mostarda flex justify-center group-hover:scale-110 transition"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                    <h4 class="font-bold text-vinhodark dark:text-white text-sm">TI</h4>
+                    <span class="text-[10px] text-mostarda font-bold uppercase tracking-wider block">Ver Equipe →</span>
+                </div>
+                <div onclick="abrirModalSetor('administracao')" class="cursor-pointer bg-white dark:bg-[#2b0b0e] p-6 rounded-2xl text-center shadow-sm border border-gray-100 dark:border-white/5 hover:border-mostarda transition flex flex-col items-center justify-between min-h-[160px] group">
+                    <div class="text-vinho dark:text-mostarda flex justify-center group-hover:scale-110 transition"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                    <h4 class="font-bold text-vinhodark dark:text-white text-sm">Administração</h4>
+                    <span class="text-[10px] text-mostarda font-bold uppercase tracking-wider block">Ver Equipe →</span>
+                </div>
+                <div onclick="abrirModalSetor('rh')" class="cursor-pointer bg-white dark:bg-[#2b0b0e] p-6 rounded-2xl text-center shadow-sm border border-gray-100 dark:border-white/5 hover:border-mostarda transition flex flex-col items-center justify-between min-h-[160px] group">
+                    <div class="text-vinho dark:text-mostarda flex justify-center group-hover:scale-110 transition"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <h4 class="font-bold text-vinhodark dark:text-white text-sm">RH</h4>
+                    <span class="text-[10px] text-mostarda font-bold uppercase tracking-wider block">Ver Equipe →</span>
+                </div>
+                <div onclick="abrirModalSetor('comunicacao')" class="cursor-pointer bg-white dark:bg-[#2b0b0e] p-6 rounded-2xl text-center shadow-sm border border-gray-100 dark:border-white/5 hover:border-mostarda transition flex flex-col items-center justify-between min-h-[160px] group">
+                    <div class="text-vinho dark:text-mostarda flex justify-center group-hover:scale-110 transition"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11.5" cy="11.5" r="2.5"/></svg></div>
+                    <h4 class="font-bold text-vinhodark dark:text-white text-sm">Produção & Comunicação</h4>
+                    <span class="text-[10px] text-mostarda font-bold uppercase tracking-wider block">Ver Equipe →</span>
+                </div>
+                <div onclick="abrirModalSetor('eventos')" class="cursor-pointer bg-white dark:bg-[#2b0b0e] p-6 rounded-2xl text-center shadow-sm border border-gray-100 dark:border-white/5 hover:border-mostarda transition flex flex-col items-center justify-between min-h-[160px] group">
+                    <div class="text-vinho dark:text-mostarda flex justify-center group-hover:scale-110 transition"><svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+                    <h4 class="font-bold text-vinhodark dark:text-white text-sm">Eventos</h4>
+                    <span class="text-[10px] text-mostarda font-bold uppercase tracking-wider block">Ver Equipe →</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Interativo da Equipe -->
+    <div id="modal-equipe" onclick="verificarCliqueFora(event)" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div id="modal-card-conteudo" class="bg-white dark:bg-[#2b0b0e] w-full max-w-xl rounded-3xl p-6 md:p-8 space-y-6 shadow-2xl relative border border-vinho/20">
+            <button onclick="fecharModalSetor()" class="absolute top-5 right-5 text-gray-400 hover:text-vinho dark:hover:text-mostarda transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+
+            <div class="space-y-1">
+                <span class="text-xs font-bold text-mostarda uppercase tracking-widest">Equipe Odara</span>
+                <h3 id="modal-setor-nome" class="text-2xl font-extrabold text-vinhodark dark:text-white"></h3>
+                <p id="modal-setor-desc" class="text-xs text-gray-500 dark:text-gray-300"></p>
+            </div>
+
+            <div id="modal-setor-membros" class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-80 overflow-y-auto pr-1"></div>
+        </div>
+    </div>
+
+    <!-- Personagem do Mês -->
+    <section id="personagem" class="py-20 px-6 bg-gradient-to-r from-vinho via-vinhodark to-[#1a0709] text-white">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="relative flex justify-center order-2 md:order-1">
+                <div class="w-72 h-96 md:w-80 md:h-[450px] rounded-3xl overflow-hidden shadow-2xl border-4 border-mostarda relative group">
+                    <img id="pers-img" src="" alt="Personagem do Mês" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                    <span id="pers-tag" class="absolute bottom-4 left-4 bg-mostarda text-vinhodark text-xs font-extrabold px-3 py-1.5 rounded-full uppercase tracking-wider"></span>
+                </div>
+            </div>
+            <div class="space-y-6 order-1 md:order-2">
+                <div class="space-y-2">
+                    <span id="pers-mes" class="text-xs font-extrabold text-mostarda uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full border border-mostarda/30"></span>
+                    <h2 id="pers-nome" class="text-4xl md:text-5xl font-black text-white tracking-tight"></h2>
+                    <h3 id="pers-subtitulo" class="text-lg font-medium text-gray-300"></h3>
+                </div>
+
+                <p id="pers-desc" class="text-gray-200 text-sm md:text-base leading-relaxed font-normal"></p>
+
+                <div class="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-full bg-mostarda/20 text-mostarda flex items-center justify-center font-bold text-lg shrink-0">✨</div>
+                    <p class="text-xs text-gray-300">
+                        <strong>Porquê este personagem?</strong> <span id="pers-motivo"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção: A Arte que Transforma (Dinâmica via Script) -->
+    <section id="arte-transforma" class="py-20 px-6 bg-white dark:bg-[#20090c]">
+        <div class="max-w-7xl mx-auto space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <span id="pesquisa-tag" class="bg-mostarda/20 text-vinho dark:text-mostarda font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase"></span>
+                <h2 id="pesquisa-titulo" class="text-3xl md:text-4xl font-extrabold text-vinhodark dark:text-white"></h2>
+                <p id="pesquisa-intro" class="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed"></p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="bg-[#faf8f5] dark:bg-[#2b0b0e] p-8 rounded-3xl border border-gray-100 dark:border-white/5 space-y-4">
+                    <h3 id="pesquisa-b1-tit" class="text-xl font-bold text-vinhodark dark:text-white"></h3>
+                    <p id="pesquisa-b1-txt" class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed"></p>
+                </div>
+
+                <div class="bg-[#faf8f5] dark:bg-[#2b0b0e] p-8 rounded-3xl border border-gray-100 dark:border-white/5 space-y-4">
+                    <h3 id="pesquisa-b2-tit" class="text-xl font-bold text-vinhodark dark:text-white"></h3>
+                    <p id="pesquisa-b2-txt" class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed"></p>
+                </div>
+            </div>
+
+            <!-- Museus Recomendados -->
+            <div class="space-y-6 pt-6">
+                <h3 class="text-2xl font-bold text-vinhodark dark:text-white text-center">Espaços Culturais Recomendados</h3>
+                <div id="museus-container" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos Realizados -->
+    <section id="projetos" class="py-20 px-6 bg-[#f3ede2]/50 dark:bg-[#1a0709]">
+        <div class="max-w-7xl mx-auto space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-4">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-vinhodark dark:text-white">Projetos Realizados</h2>
+                <p class="text-gray-600 dark:text-gray-300">Clique nos cards para expandir e conhecer mais detalhes de nossas iniciativas.</p>
+            </div>
+
+            <div id="projetos-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch"></div>
+        </div>
+    </section>
+
+    <!-- Espaço Interativo (Vibe Cultural) -->
+    <section id="interativo" class="py-20 px-6 bg-[#faf8f5] dark:bg-[#1a0709]">
+        <div class="max-w-4xl mx-auto bg-white dark:bg-[#2b0b0e] border border-vinho/10 dark:border-white/10 rounded-3xl p-8 md:p-12 shadow-sm text-center space-y-8">
+            <div class="space-y-3">
+                <span class="bg-mostarda/20 text-vinhodark dark:text-mostarda font-bold px-4 py-1.5 rounded-full text-xs tracking-wider uppercase">Espaço Interativo</span>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-vinhodark dark:text-white">Qual é a sua vibe cultural hoje?</h2>
+                <p class="text-gray-600 dark:text-gray-300 text-sm">Clique em um dos botões para descobrir uma recomendação especial da Odara:</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="mudarVibe('leitura')" class="px-6 py-3 bg-vinho/5 dark:bg-white/5 border-2 border-vinho text-vinho dark:text-white font-semibold rounded-xl hover:bg-vinho hover:text-white transition">
+                    📚 Quero Ler Algo Novo
+                </button>
+                <button onclick="mudarVibe('musica')" class="px-6 py-3 bg-mostarda/10 dark:bg-white/5 border-2 border-mostarda text-vinhodark dark:text-mostarda font-semibold rounded-xl hover:bg-mostarda hover:text-vinhodark transition">
+                    🎵 Viajar na Música
+                </button>
+                <button onclick="mudarVibe('empatia')" class="px-6 py-3 bg-vinhodark/5 dark:bg-white/5 border-2 border-vinhodark dark:border-white text-vinhodark dark:text-white font-semibold rounded-xl hover:bg-vinhodark hover:text-white transition">
+                    🤝 Conexão & Empatia
+                </button>
+            </div>
+
+            <div id="resultado-vibe" class="bg-[#faf8f5] dark:bg-[#1a0709] p-6 md:p-8 rounded-2xl border-l-8 border-vinho text-left space-y-2">
+                <h4 class="font-bold text-vinho dark:text-mostarda text-lg" id="vibe-titulo">Selecione uma opção acima!</h4>
+                <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" id="vibe-texto">Descubra dicas de livros, músicas e dinâmicas criadas por nossos setores.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Indicações Mensais -->
+    <section id="indicacoes" class="py-20 px-6 bg-white dark:bg-[#20090c]">
+        <div class="max-w-7xl mx-auto space-y-12">
+            <div class="text-center max-w-2xl mx-auto space-y-4">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-vinhodark dark:text-white">Indicações Odara do Mês</h2>
+                <p class="text-gray-600 dark:text-gray-300">Dicas da nossa equipe para alimentar a mente e o espírito cultural.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-[#faf8f5] dark:bg-[#2b0b0e] p-8 rounded-3xl border border-gray-100 dark:border-white/5 flex flex-col sm:flex-row gap-6 items-center">
+                    <div class="w-24 h-36 rounded-xl overflow-hidden shadow-md shrink-0 border border-vinho/10 bg-vinho/10">
+                        <img id="img-livro-capa" src="" alt="Capa do Livro" class="w-full h-full object-cover">
+                    </div>
+                    <div class="space-y-2 text-center sm:text-left">
+                        <span class="text-xs font-bold text-mostarda uppercase tracking-wider">Livro do Mês</span>
+                        <h3 class="text-xl font-bold text-vinhodark dark:text-white" id="lbl-livro-titulo"></h3>
+                        <p class="text-sm font-semibold text-gray-500 dark:text-gray-400" id="lbl-livro-autor"></p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" id="lbl-livro-desc"></p>
+                    </div>
+                </div>
+
+                <div class="bg-[#faf8f5] dark:bg-[#2b0b0e] p-8 rounded-3xl border border-gray-100 dark:border-white/5 flex flex-col sm:flex-row gap-6 items-center">
+                    <div class="w-20 h-28 bg-mostarda/20 rounded-xl flex items-center justify-center text-vinhodark dark:text-mostarda shrink-0">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div class="space-y-2 text-center sm:text-left">
+                        <span class="text-xs font-bold text-vinho dark:text-mostarda uppercase tracking-wider">Lugar do Mês</span>
+                        <h3 class="text-xl font-bold text-vinhodark dark:text-white" id="lbl-lugar-nome"></h3>
+                        <p class="text-sm font-semibold text-gray-500 dark:text-gray-400" id="lbl-lugar-local"></p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed" id="lbl-lugar-desc"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="bg-vinhodark text-white py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 border-b border-white/10 pb-8">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-vinho flex items-center justify-center text-white font-bold text-sm">O</div>
+                <span class="text-xl font-extrabold tracking-tight">ODARA OSC</span>
+            </div>
+            <p class="text-sm text-gray-400 text-center">Promovendo e incentivando a cultura e educação para as juventudes brasileiras.</p>
+            <a id="footer-insta-btn" href="#" target="_blank" class="text-mostarda hover:underline text-sm font-semibold">@odara.osc</a>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 text-center text-xs text-gray-500">
+            &copy; 2026 Odara OSC. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!-- Lógica JavaScript -->
+    <script>
+        document.getElementById('nav-insta-btn').href = CONFIG_ODARA.instagramUrl;
+        document.getElementById('footer-insta-btn').href = CONFIG_ODARA.instagramUrl;
+        document.getElementById('hero-badge').innerText = CONFIG_ODARA.hero.badge;
+        document.getElementById('hero-titulo-p1').innerText = CONFIG_ODARA.hero.tituloParte1;
+        document.getElementById('hero-titulo-destaque').innerText = CONFIG_ODARA.hero.tituloDestaque;
+        document.getElementById('hero-desc').innerText = CONFIG_ODARA.hero.descricao;
+
+        document.getElementById('lider-nome').innerText = CONFIG_ODARA.lideranca.nome;
+        document.getElementById('lider-cargo').innerText = CONFIG_ODARA.lideranca.cargo;
+        document.getElementById('lider-foto').src = CONFIG_ODARA.lideranca.foto;
+
+        document.getElementById('sobre-desc').innerText = CONFIG_ODARA.sobre.quemSomosDesc;
+        document.getElementById('mvv-missao').innerText = CONFIG_ODARA.sobre.missao;
+        document.getElementById('mvv-visao').innerText = CONFIG_ODARA.sobre.visao;
+        
+        const valoresList = document.getElementById('mvv-valores-list');
+        CONFIG_ODARA.sobre.valores.forEach(item => {
+            const li = document.createElement('li');
+            li.innerText = "• " + item;
+            valoresList.appendChild(li);
+        });
+
+        document.getElementById('pers-mes').innerText = CONFIG_ODARA.personagemMes.mesTema;
+        document.getElementById('pers-nome').innerText = CONFIG_ODARA.personagemMes.nome;
+        document.getElementById('pers-subtitulo').innerText = CONFIG_ODARA.personagemMes.subtitulo;
+        document.getElementById('pers-desc').innerText = CONFIG_ODARA.personagemMes.descricao;
+        document.getElementById('pers-img').src = CONFIG_ODARA.personagemMes.imagemPrincipal;
+        document.getElementById('pers-tag').innerText = CONFIG_ODARA.personagemMes.tag;
+        document.getElementById('pers-motivo').innerText = CONFIG_ODARA.personagemMes.motivoDestaque;
+
+        // Preenchimento Dinâmico da Pesquisa
+        document.getElementById('pesquisa-tag').innerText = CONFIG_ODARA.pesquisaMes.mesTema;
+        document.getElementById('pesquisa-titulo').innerText = CONFIG_ODARA.pesquisaMes.titulo;
+        document.getElementById('pesquisa-intro').innerText = CONFIG_ODARA.pesquisaMes.introducao;
+        document.getElementById('pesquisa-b1-tit').innerText = CONFIG_ODARA.pesquisaMes.bloco1Titulo;
+        document.getElementById('pesquisa-b1-txt').innerText = CONFIG_ODARA.pesquisaMes.bloco1Texto;
+        document.getElementById('pesquisa-b2-tit').innerText = CONFIG_ODARA.pesquisaMes.bloco2Titulo;
+        document.getElementById('pesquisa-b2-txt').innerText = CONFIG_ODARA.pesquisaMes.bloco2Texto;
+
+        const museusContainer = document.getElementById('museus-container');
+        CONFIG_ODARA.pesquisaMes.museus.forEach(museu => {
+            const card = document.createElement('div');
+            card.className = "bg-[#faf8f5] dark:bg-[#2b0b0e] p-6 rounded-2xl border border-vinho/10 space-y-3";
+            card.innerHTML = `
+                <h4 class="font-bold text-vinho dark:text-mostarda">${museu.nome}</h4>
+                <p class="text-xs text-gray-600 dark:text-gray-300">${museu.endereco}</p>
+                <a href="${museu.link}" target="_blank" class="inline-block text-xs font-bold text-vinho dark:text-mostarda hover:underline">Ver Horários e Ingressos →</a>
+            `;
+            museusContainer.appendChild(card);
+        });
+
+        const projContainer = document.getElementById('projetos-container');
+        CONFIG_ODARA.projetos.forEach(proj => {
+            const card = document.createElement('div');
+            card.onclick = () => toggleProjeto(proj.id);
+            card.className = "cursor-pointer bg-[#faf8f5] dark:bg-[#2b0b0e] p-8 rounded-3xl border border-gray-200 dark:border-white/10 hover:border-vinho transition flex flex-col justify-between h-full min-h-[220px]";
+            card.innerHTML = `
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-bold text-mostarda uppercase tracking-wider">${proj.categoria}</span>
+                        <svg id="arrow-${proj.id}" class="w-5 h-5 text-vinho dark:text-mostarda transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-vinhodark dark:text-white">${proj.titulo}</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-300">${proj.resumo}</p>
+                </div>
+                <div id="content-${proj.id}" class="hidden pt-4 mt-4 border-t border-gray-200 dark:border-white/10 text-xs text-gray-600 dark:text-gray-300 leading-relaxed">
+                    ${proj.detalhes}
+                </div>
+            `;
+            projContainer.appendChild(card);
+        });
+
+        document.getElementById('img-livro-capa').src = CONFIG_ODARA.livroMes.capa;
+        document.getElementById('lbl-livro-titulo').innerText = CONFIG_ODARA.livroMes.titulo;
+        document.getElementById('lbl-livro-autor').innerText = "Por " + CONFIG_ODARA.livroMes.autor;
+        document.getElementById('lbl-livro-desc').innerText = CONFIG_ODARA.livroMes.descricao;
+        document.getElementById('lbl-lugar-nome').innerText = CONFIG_ODARA.lugarMes.nome;
+        document.getElementById('lbl-lugar-local').innerText = CONFIG_ODARA.lugarMes.local;
+        document.getElementById('lbl-lugar-desc').innerText = CONFIG_ODARA.lugarMes.descricao;
+
+        function abrirModalSetor(chaveSetor) {
+            const setor = CONFIG_ODARA.setoresEquipe[chaveSetor];
+            if (!setor) return;
+
+            document.getElementById('modal-setor-nome').innerText = setor.nome;
+            document.getElementById('modal-setor-desc').innerText = setor.descricao;
+
+            const membrosContainer = document.getElementById('modal-setor-membros');
+            membrosContainer.innerHTML = '';
+
+            setor.membros.forEach(membro => {
+                const item = document.createElement('div');
+                item.className = "bg-[#faf8f5] dark:bg-[#1a0709] p-3 rounded-2xl border border-gray-100 dark:border-white/5 flex items-center gap-3";
+                
+                const avatarHtml = (membro.foto && membro.foto.trim() !== "") 
+                    ? `<img src="${membro.foto}" alt="${membro.nome}" class="w-full h-full object-cover">`
+                    : `<span>${membro.nome.charAt(0)}</span>`;
+
+                item.innerHTML = `
+                    <div class="w-12 h-12 rounded-2xl bg-vinho/10 text-vinho dark:text-mostarda flex items-center justify-center font-bold text-sm shrink-0 overflow-hidden border border-vinho/10">
+                        ${avatarHtml}
+                    </div>
+                    <div class="overflow-hidden">
+                        <h5 class="font-bold text-sm text-vinhodark dark:text-white truncate">${membro.nome}</h5>
+                        <p class="text-[11px] text-gray-500 dark:text-gray-400 truncate">${membro.cargo}</p>
+                    </div>
+                `;
+                membrosContainer.appendChild(item);
+            });
+
+            document.getElementById('modal-equipe').classList.remove('hidden');
+        }
+
+        function fecharModalSetor() {
+            document.getElementById('modal-equipe').classList.add('hidden');
+        }
+
+        function verificarCliqueFora(e) {
+            const cardConteudo = document.getElementById('modal-card-conteudo');
+            if (!cardConteudo.contains(e.target)) {
+                fecharModalSetor();
+            }
+        }
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        function toggleProjeto(id) {
+            const content = document.getElementById(`content-${id}`);
+            const arrow = document.getElementById(`arrow-${id}`);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                arrow.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                arrow.classList.remove('rotate-180');
+            }
+        }
+
+        function mudarVibe(tipo) {
+            const titulo = document.getElementById('vibe-titulo');
+            const texto = document.getElementById('vibe-texto');
+
+            if (tipo === 'leitura') {
+                titulo.innerText = "Recomendação Literária:";
+                texto.innerText = `Que tal ler "${CONFIG_ODARA.livroMes.titulo}" de ${CONFIG_ODARA.livroMes.autor}? ${CONFIG_ODARA.livroMes.descricao}`;
+            } else if (tipo === 'musica') {
+                titulo.innerText = "A Música como Agente Cultural:";
+                texto.innerText = "A música move histórias, preserva identidades e conecta gerações. Em nossa 'Máquina do Tempo Musical', vivenciamos como a arte sonora estimula o senso crítico, a memória afetiva e a expressão livre de cada jovem.";
+            } else if (tipo === 'empatia') {
+                titulo.innerText = "Gesto de Empatia:";
+                texto.innerText = "Inspirado nas vivências do nosso RH: Experimente hoje ouvir um colega ou amigo com atenção total, sem interrupções. Ouvir é a forma mais pura de respeito e conexão.";
+            }
+        }
+    </script>
+</body>
+</html>
